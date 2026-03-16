@@ -13,7 +13,6 @@
 
 <body>
     <canvas id="particle-canvas"></canvas>
-    <!-- Floating background elements -->
     <div class="floating-shapes">
         <div class="floating-shape"></div>
         <div class="floating-shape"></div>
@@ -26,7 +25,6 @@
         <div class="particle"></div>
         <div class="particle"></div>
     </div>
-
     <nav class="navbar">
         <div class="logo">UMMAY MAIMONA CHAMAN</div>
         <div class="nav-links">
@@ -50,11 +48,7 @@
                 <img src="UMC/pic.png" alt="Ummay Maimona Chaman" class="profile-pic-overlay">
             </div>
             <div class="hero-text">
-                <h1>
-                    <span class="bounce-word">Ummay</span>
-                    <span class="bounce-word">Maimona</span>
-                    <span class="bounce-word">Chaman</span>
-                </h1>
+                <h1>Ummay Maimona Chaman</h1>
                 <p>Computer Science Engineer | Web Dev | ML/DL | AI | Writer | Robotics</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">Get in Touch</a>
@@ -220,6 +214,7 @@
             </div>
         </div>
     </section>
+    </section>
 
     <section id="projects" class="section">
         <div class="container">
@@ -233,246 +228,372 @@
 
             <!-- Software Projects -->
             <div id="software-projects" class="project-category active">
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/skillshare.png" alt="SkillPocket">
-                        </div>
-                        <div class="project-content">
-                            <h3>SkillPocket</h3>
-                            <p class="project-description">
-                                <span class="short-desc">A full-stack skill-exchange platform with complete user
-                                    management, built using a React frontend and Node.js MVC backend.</span>
-                                <span class="full-desc" style="display: none;"> Enabling users to teach/learn skills,
-                                    schedule sessions, share feedback, and manage requests efficiently.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>MERN</span><span>React</span><span>Node.js</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/Skillpockets" target="_blank"
-                                    class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="skillpockets-umc.vercel.app" target="_blank"
-                                    class="project-link-icon" title="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Sub-tabs for Software -->
+                <div class="project-subtabs">
+                    <button class="subtab active" onclick="showSoftwareSubCategory('ml')">ML</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('dl')">DL</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('web')">Web Dev</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('python')">Python</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('opengl')">OpenGL</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('neural')">Neural Network</button>
+                </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/consumer.png" alt="Consumer Churn Prediction">
-                        </div>
-                        <div class="project-content">
-                            <h3>Consumer Churn Prediction</h3>
-                            <p class="project-description">
-                                <span class="short-desc">Developed classification models to predict consumer churn using
-                                    engineered features, Logistic Regression, Random Forest, and Gradient
-                                    Boosting.</span>
-                                <span class="full-desc" style="display: none;"> Enabling data-driven retention
-                                    strategies.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>Machine Learning</span><span>Python</span><span>Scikit-learn</span>
+                <!-- ML Sub-category -->
+                <div id="ml-software" class="software-sub-grid active">
+                    <div class="project-carousel-container">
+                        <button class="project-carousel-control prev" onclick="moveCarousel('ml', -1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="project-carousel-wrapper">
+                            <div class="project-carousel-track" id="track-ml">
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/Churn.png" alt="Consumer Churn Prediction">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Consumer Churn Prediction</h3>
+                                        <p class="project-description">Developed classification models using engineered
+                                            features, Logistic Regression, and Random Forest.</p>
+                                        <div class="tags"><span>Machine
+                                                Learning</span><span>Python</span><span>Scikit-learn</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/Consumer-Churn-Prediction"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/Apnea.png" alt="ApneaSense"></div>
+                                    <div class="project-content">
+                                        <h3>ApneaSense</h3>
+                                        <p class="project-description">Ensemble learning framework for early risk
+                                            stratification of sleep apnea with clinical interpretability using SHAP.</p>
+                                        <div class="tags"><span>Machine Learning</span><span>XAI</span><span>Ensemble
+                                                Learning</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/ApneaSense-EnsembleXAI-for-Explainable-Sleep-Apnea-Risk-Detection"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/Consumer-Churn-Prediction"
-                                    target="_blank" class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
                         </div>
+                        <button class="project-carousel-control next" onclick="moveCarousel('ml', 1)"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/race.png" alt="3D Racing Game">
-                        </div>
-                        <div class="project-content">
-                            <h3>3D Racing Game</h3>
-                            <p class="project-description">
-                                <span class="short-desc">A 3D endless car racing game built with Python and PyOpenGL
-                                    featuring curved tracks, obstacles, AI opponents, and multiple levels.</span>
-                                <span class="full-desc" style="display: none;"> Players race to survive, avoid crashes,
-                                    and complete Level 5 to win.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>Python</span><span>PyOpenGL</span><span>Computer Graphics</span><span>Game
-                                    Development</span>
+                </div>
+
+                <!-- DL Sub-category -->
+                <div id="dl-software" class="software-sub-grid">
+                    <div class="project-carousel-container">
+                        <button class="project-carousel-control prev" onclick="moveCarousel('dl', -1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="project-carousel-wrapper">
+                            <div class="project-carousel-track" id="track-dl">
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/skin.png" alt="SkinGuard PatchCore"></div>
+                                    <div class="project-content">
+                                        <h3>SkinGuard (PatchCore)</h3>
+                                        <p class="project-description">PatchCore-based anomaly-detection pipelines for
+                                            skin-disease identification using high-precision scoring.</p>
+                                        <div class="tags"><span>Deep Learning</span><span>PatchCore</span><span>Anomaly
+                                                Detection</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/SkinGuard-Patchcore"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/cnn.png" alt="CNN Image Classifier"></div>
+                                    <div class="project-content">
+                                        <h3>CNN Image Classifier</h3>
+                                        <p class="project-description">Convolutional Neural Network (CNN) implementation
+                                            to classify images with high accuracy using Keras.</p>
+                                        <div class="tags"><span>Deep
+                                                Learning</span><span>TensorFlow</span><span>Python</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/CNN-Image-Classifier"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                            <a href="https://ummaymaimonachaman.github.io/CNN-Image-Classifier/"
+                                                target="_blank" class="project-link-icon live-link"
+                                                title="Live Website"><i class="fas fa-external-link-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/Deepfake.png" alt="FaceGuard"></div>
+                                    <div class="project-content">
+                                        <h3>FaceGuard</h3>
+                                        <p class="project-description">A multi-modal deepfake detection framework using
+                                            MesoNet and Capsule Networks with automated forensic reporting.</p>
+                                        <div class="tags"><span>Deep
+                                                Learning</span><span>Forensics</span><span>Python</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/FaceGuard" target="_blank"
+                                                class="project-link-icon github-link" title="GitHub Source"><i
+                                                    class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/3D_Racing-Game" target="_blank"
-                                    class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
                         </div>
+                        <button class="project-carousel-control next" onclick="moveCarousel('dl', 1)"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
+                </div>
 
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/Rxcare.png" alt="RxCare Pharmacy Management">
-                        </div>
-                        <div class="project-content">
-                            <h3>RxCare: Pharmacy Management</h3>
-                            <p class="project-description">
-                                <span class="short-desc">Designed an interactive, database-driven system for pharmacy
-                                    inventory, billing, and administration using PHP-MySQL.</span>
-                                <span class="full-desc" style="display: none;"> With dynamic front-end components to
-                                    streamline workflow and improve usability.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>PHP</span><span>MySQL</span><span>HTML/CSS/JS</span>
+                <!-- Web Sub-category -->
+                <div id="web-software" class="software-sub-grid">
+                    <div class="project-carousel-container">
+                        <button class="project-carousel-control prev" onclick="moveCarousel('web', -1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="project-carousel-wrapper">
+                            <div class="project-carousel-track" id="track-web">
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/skillshare.png" alt="SkillPocket"></div>
+                                    <div class="project-content">
+                                        <h3>SkillPocket</h3>
+                                        <p class="project-description">Full-stack skill-exchange platform with complete
+                                            user management, React, and Node.js MVC backend.</p>
+                                        <div class="tags"><span>MERN</span><span>React</span><span>Node.js</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/Skillpockets" target="_blank"
+                                                class="project-link-icon github-link" title="GitHub Source"><i
+                                                    class="fab fa-github"></i></a>
+                                            <a href="https://skillpockets-umc.vercel.app" target="_blank"
+                                                class="project-link-icon live-link" title="Live Website"><i
+                                                    class="fas fa-external-link-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/Rxcare.png"
+                                            alt="RxCare Pharmacy Management"></div>
+                                    <div class="project-content">
+                                        <h3>RxCare: Pharmacy Management</h3>
+                                        <p class="project-description">Interactive, database-driven system for pharmacy
+                                            inventory and billing using PHP-MySQL.</p>
+                                        <div class="tags"><span>PHP</span><span>MySQL</span><span>Web Dev</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/RxCare" target="_blank"
+                                                class="project-link-icon github-link" title="GitHub Source"><i
+                                                    class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/RxCare" target="_blank"
-                                    class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
                         </div>
+                        <button class="project-carousel-control next" onclick="moveCarousel('web', 1)"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
+                </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/skin.png" alt="SkinGuard PatchCore">
-                        </div>
-                        <div class="project-content">
-                            <h3>SkinGuard (PatchCore)</h3>
-                            <p class="project-description">
-                                <span class="short-desc">Implemented PatchCore-based anomaly-detection pipelines for
-                                    skin-disease identification.</span>
-                                <span class="full-desc" style="display: none;"> Combining image embeddings, memory
-                                    banks, and nearest-neighbor search for high-precision anomaly scoring.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>PatchCore</span><span>Deep Learning</span><span>Anomaly Detection</span>
+                <!-- Python Sub-category -->
+                <div id="python-software" class="software-sub-grid">
+                    <div class="project-carousel-container">
+                        <button class="project-carousel-control prev" onclick="moveCarousel('python', -1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="project-carousel-wrapper">
+                            <div class="project-carousel-track" id="track-python">
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/CurveMaker.png" alt="CurveMaker"></div>
+                                    <div class="project-content">
+                                        <h3>CurveMaker</h3>
+                                        <p class="project-description">Professional chart-building application with
+                                            real-time previews and multiple curve types.</p>
+                                        <div class="tags"><span>Python</span><span>Flask</span><span>SciPy</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/CurveMaker" target="_blank"
+                                                class="project-link-icon github-link" title="GitHub Source"><i
+                                                    class="fab fa-github"></i></a>
+                                            <a href="https://ummaymaimonachaman.github.io/CurveMaker/" target="_blank"
+                                                class="project-link-icon live-link" title="Live Website"><i
+                                                    class="fas fa-external-link-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/SkinGuard-Patchcore" target="_blank"
-                                    class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
                         </div>
+                        <button class="project-carousel-control next" onclick="moveCarousel('python', 1)"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
+                </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/CurveMaker.png" alt="CurveMaker">
-                        </div>
-                        <div class="project-content">
-                            <h3>CurveMaker</h3>
-                            <p class="project-description">
-                                <span class="short-desc">Created a professional chart-building web application
-                                    supporting real-time previews, multiple curve types, neon-themed UI.</span>
-                                <span class="full-desc" style="display: none;"> Data validation, and PNG/SVG export,
-                                    powered by Python, Flask, matplotlib, and SciPy.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>Flask</span><span>Python</span><span>Matplotlib</span><span>SciPy</span>
+                <!-- OpenGL Sub-category -->
+                <div id="opengl-software" class="software-sub-grid">
+                    <div class="project-carousel-container">
+                        <button class="project-carousel-control prev" onclick="moveCarousel('opengl', -1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="project-carousel-wrapper">
+                            <div class="project-carousel-track" id="track-opengl">
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/race.png" alt="3D Racing Game"></div>
+                                    <div class="project-content">
+                                        <h3>3D Racing Game</h3>
+                                        <p class="project-description">Endless car racing game with curved tracks,
+                                            obstacles, and AI opponents built with PyOpenGL.</p>
+                                        <div class="tags"><span>PyOpenGL</span><span>Python</span><span>Graphics</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/3D_Racing-Game"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/2d.png" alt="Catch The Diamond"></div>
+                                    <div class="project-content">
+                                        <h3>Catch The Diamond</h3>
+                                        <p class="project-description">Interactive 2D game built with PyOpenGL featuring
+                                            dynamic scoring and obstacle management.</p>
+                                        <div class="tags"><span>PyOpenGL</span><span>Python</span><span>Game Dev</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/Catch-The-Diamond"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/CurveMaker" target="_blank"
-                                    class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://ummaymaimonachaman.github.io/CurveMaker/" target="_blank"
-                                    class="project-link-icon" title="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
                         </div>
+                        <button class="project-carousel-control next" onclick="moveCarousel('opengl', 1)"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/cnn.png" alt="CNN Image Classifier">
-                        </div>
-                        <div class="project-content">
-                            <h3>CNN Image Classifier</h3>
-                            <p class="project-description">
-                                <span class="short-desc">A deep learning project that implements a Convolutional Neural
-                                    Network (CNN) to classify images with high accuracy.</span>
-                                <span class="full-desc" style="display: none;"> Built with a focus on clarity,
-                                    accessibility, and responsible dataset usage.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>TensorFlow</span><span>Keras</span><span>Python</span><span>CNN</span>
+                </div>
+                <!-- Neural Network Sub-grid with Carousel -->
+                <div id="neural-software" class="software-sub-grid">
+                    <div class="project-carousel-container">
+                        <button class="project-carousel-control prev" onclick="moveCarousel('neural', -1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <div class="project-carousel-wrapper">
+                            <div class="project-carousel-track" id="track-neural">
+                                <!-- Project 1 -->
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="UMC/Neural.png" alt="Neural Network">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Unsupervised Neural Network</h3>
+                                        <p class="project-description">
+                                            <span class="short-desc">Implementing complex unsupervised learning
+                                                architectures from scratch to identify hidden patterns.</span>
+                                            <span class="full-desc" style="display: none;"> This project focuses on SOMs
+                                                and Autoencoders for clinical dataset clustering, surpassing baseline
+                                                performance by 15%.</span>
+                                            <button class="show-more-btn" onclick="toggleDescription(this)">Show
+                                                More</button>
+                                        </p>
+                                        <div class="tags">
+                                            <span>Python</span><span>PyTorch</span><span>NumPy</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="#" class="project-link-icon github-link" title="GitHub Source"><i
+                                                    class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/CNN-Image-Classifier" target="_blank"
-                                    class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://ummaymaimonachaman.github.io/CNN-Image-Classifier/" target="_blank"
-                                    class="project-link-icon" title="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
+                        </div>
+                        <button class="project-carousel-control next" onclick="moveCarousel('neural', 1)"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hardware-projects" class="project-category">
+            <div class="project-carousel-container">
+                <button class="project-carousel-control prev" onclick="moveCarousel('hardware', -1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="project-carousel-wrapper">
+                    <div class="project-carousel-track" id="track-hardware">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="UMC/restroom.png" alt="Autonomous restroom management">
+                            </div>
+                            <div class="project-content">
+                                <h3>Autonomous restroom management</h3>
+                                <p class="project-description">
+                                    <span class="short-desc">An Arduino-controlled robot capable of navigating restroom
+                                        automation
+                                        like controlling water leakage, odor management.</span>
+                                    <span class="full-desc" style="display: none;"> And notifying the manager via
+                                        Telegram for
+                                        maintenance alerts.</span>
+                                    <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
+                                </p>
+                                <div class="tags">
+                                    <span>Arduino</span><span>IoT</span><span>Telegram API</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link-icon" title="View on GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="UMC/judge.png" alt="Digital Judging Platform">
+                            </div>
+                            <div class="project-content">
+                                <h3>Digital Judging Platform for Talent Competitions</h3>
+                                <p class="project-description">
+                                    <span class="short-desc">Worked as a team member and built a role-based voting and
+                                        scoring
+                                        platform featuring
+                                        weighted votes, single-vote validation, administrative monitoring.</span>
+                                    <span class="full-desc" style="display: none;"> And automated winner calculation
+                                        with
+                                        detailed score breakdowns.</span>
+                                    <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
+                                </p>
+                                <div class="tags">
+                                    <span>Microcontroller</span><span>Embedded Systems</span><span>C/C++</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/UmmayMaimonaChaman/CSE341/tree/main/Lab%20Project"
+                                        target="_blank" class="project-link-icon" title="View on GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="UMC/plant.png" alt="Smart Plant Watering System">
+                            </div>
+                            <div class="project-content">
+                                <h3>Smart Plant Watering System</h3>
+                                <p class="project-description">
+                                    <span class="short-desc">Worked as a team member and developed an autonomous
+                                        irrigation
+                                        robot with plant detection,
+                                        distance-based localization, rain sensing, temperature-dependent
+                                        watering.</span>
+                                    <span class="full-desc" style="display: none;"> Reservoir monitoring, and
+                                        return-to-base
+                                        logic powered by a custom navigation algorithm.</span>
+                                    <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
+                                </p>
+                                <div class="tags">
+                                    <span>Robotics</span><span>Autonomous</span><span>Arduino</span><span>Sensors</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button class="project-carousel-control next" onclick="moveCarousel('hardware', 1)"><i
+                        class="fas fa-chevron-right"></i></button>
             </div>
-
-            <!-- Hardware Projects -->
-            <div id="hardware-projects" class="project-category">
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/judge.png" alt="Digital Judging Platform">
-                        </div>
-                        <div class="project-content">
-                            <h3>Digital Judging Platform for Talent Competitions</h3>
-                            <p class="project-description">
-                                <span class="short-desc">Worked as a team member and built a role-based voting and scoring platform featuring
-                                    weighted votes, single-vote validation, administrative monitoring.</span>
-                                <span class="full-desc" style="display: none;"> And automated winner calculation with
-                                    detailed score breakdowns.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>Microcontroller</span><span>Embedded Systems</span><span>C/C++</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/UmmayMaimonaChaman/CSE341/tree/main/Lab%20Project"
-                                    target="_blank" class="project-link-icon" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="UMC/plant.png" alt="Smart Plant Watering System">
-                        </div>
-                        <div class="project-content">
-                            <h3>Smart Plant Watering System</h3>
-                            <p class="project-description">
-                                <span class="short-desc">Worked as a team member and developed an autonomous irrigation robot with plant detection,
-                                    distance-based localization, rain sensing, temperature-dependent watering.</span>
-                                <span class="full-desc" style="display: none;"> Reservoir monitoring, and return-to-base
-                                    logic powered by a custom navigation algorithm.</span>
-                                <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
-                            </p>
-                            <div class="tags">
-                                <span>Robotics</span><span>Autonomous</span><span>Arduino</span><span>Sensors</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
         </div>
     </section>
 
@@ -491,137 +612,178 @@
             <div id="journal-publications" class="project-category active">
                 <div class="project-grid">
                     <div class="project-card">
+                        <h3>A Cross Modal Attention Based Multimodal Deep Learning Framework for Early Prediction of
+                            Adolescent Anxiety Disorder</h3>
+                        <p>This is my undergrad thesis. We propose a multimodal deep learning framework using the QTAB
+                            dataset to detect adolescent anxiety early, achieving an AUC of 0.8935 with calibrated late
+                            fusion. (Under review at PLOS ONE, a peer-reviewed, open-access scientific journal published
+                            by the Public Library of Science)</p>
+                        <p class="link-placeholder">Link will be added soon</p>
+                    </div>
+                    <div class="project-card">
                         <h3>Federated Learning in Healthcare</h3>
                         <p>A Comprehensive Survey on Privacy, Scalability, and Clinical Applications — Under review at
                             ICT
-                            Express (Q2 journal).</p>
+                            Express (Q1 journal).</p>
+                        <p class="link-placeholder">Link will be added soon</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Towards Responsible AI in AI-Enabled Visual Editing: A Framework for Fairness, Transparency,
+                            and Security</h3>
+                        <p>This paper explores security challenges in AI‑driven visual editing and proposes a
+                            Responsible AI framework to safeguard digital media integrity. (Under review at IndabaX 26,
+                            a flagship machine learning community event whose proceedings are published in PMLR and
+                            indexed in Scopus and Google Scholar)</p>
                         <p class="link-placeholder">Link will be added soon</p>
                     </div>
                 </div>
             </div>
 
-        <!-- Conference Publications -->
-        <div id="conference-publications" class="project-category">
-            <div class="project-grid">
+            <!-- Conference Publications -->
+            <div id="conference-publications" class="project-category">
+                <div class="project-grid">
 
-                <div class="project-card">
-                    <h3>
-                        Robust Multi-Backbone Hybrid Fusion for Chest X-Ray Pneumonia Detection
-                        (submitted to QPAIN 2026)
-                    </h3>
-                    <p>
-                        The method integrates CNN classification with PatchCore anomaly detection
-                        across ResNet, DenseNet, and EfficientNet backbones. Logistic regression
-                        combines classifier confidence, uncertainty, and anomaly scores, achieving
-                        ROC-AUC &gt; 0.97 for pneumonia screening.
-                    </p>
-                    <p class="link-placeholder">Link will be added soon</p>
-                </div>
-
-                <div class="project-card">
-                    <h3>
-                        HARE: A Large-Scale Indoor RGB Video Dataset for Robust Fall Detection
-                        across Lighting Conditions
-                    </h3>
-                    <p>
-                        Submitted to the Knowledge Discovery and Data Mining (KDD) 2026 conference.
-                        A large-scale, multi-view indoor video dataset of 4,146 annotated clips
-                        across varied lighting conditions, designed to advance robust fall detection
-                        and human activity recognition research.
-                    </p>
-                    <p class="link-placeholder">Link will be added soon</p>
-                </div>
-
-                <div class="project-card clickable-card"
-                    onclick="window.open('https://www.researchgate.net/publication/390952396_Smart_Waste_Solutions_Harnessing_Technology_for_a_Greener_Future', '_blank')">
-                    <h3>Smart Waste Solutions: Harnessing Technology for a Greener Future</h3>
-                    <p>
-                        Published at ICEMSS-24 (Scopus indexed), focusing on innovative
-                        tech-driven waste management.
-                    </p>
-                    <div class="project-links">
-                        <a href="Certificates/Scopus.jpg" target="_blank"
-                           class="project-link-icon" title="View Certificate">
-                            <i class="fas fa-certificate"></i>
-                        </a>
+                    <div class="project-card">
+                        <h3>
+                            Robust Multi-Backbone Hybrid Fusion for Chest X-Ray Pneumonia Detection
+                            (accepted to QPAIN 2026)
+                        </h3>
+                        <p>
+                            The method integrates CNN classification with PatchCore anomaly detection
+                            across ResNet, DenseNet, and EfficientNet backbones. Logistic regression
+                            combines classifier confidence, uncertainty, and anomaly scores, achieving
+                            ROC-AUC &gt; 0.97 for pneumonia screening.
+                        </p>
+                        <p class="link-placeholder">Link will be added soon</p>
                     </div>
-                </div>
 
+                    <div class="project-card">
+                        <h3>
+                            HARE: A Large-Scale Indoor RGB Video Dataset for Robust Fall Detection
+                            across Lighting Conditions
+                        </h3>
+                        <p>
+                            Submitted to the Knowledge Discovery and Data Mining (KDD) 2026 conference.
+                            A large-scale, multi-view indoor video dataset of 4,146 annotated clips
+                            across varied lighting conditions, designed to advance robust fall detection
+                            and human activity recognition research.
+                        </p>
+                        <p class="link-placeholder">Link will be added soon</p>
+                    </div>
+
+                    <div class="project-card clickable-card"
+                        onclick="window.open('https://www.researchgate.net/publication/390952396_Smart_Waste_Solutions_Harnessing_Technology_for_a_Greener_Future', '_blank')">
+                        <h3>Smart Waste Solutions: Harnessing Technology for a Greener Future</h3>
+                        <p>
+                            Published at ICEMSS-24 (Scopus indexed), focusing on innovative
+                            tech-driven waste management.
+                        </p>
+                        <div class="project-links">
+                            <a href="Certificates/scop.jpg" target="_blank" class="project-link-icon"
+                                title="View Certificate">
+                                <i class="fas fa-certificate"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Other Publications -->
+            <div id="others-publications" class="project-category">
+                <div class="project-grid">
+
+                    <div class="project-card">
+                        <h3>Fall Detection Dataset (Ongoing)</h3>
+                        <p>Creating and evaluating a dataset for fall detection systems.</p>
+                        <p class="link-placeholder">Link will be added soon</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Turning the Tide: Rethinking Plastic Waste Management in Bangladesh</h3>
+                        <p>
+                            In publication process at Bured Club Magazine (Reflection),
+                            exploring sustainable plastic management.
+                        </p>
+                        <p class="link-placeholder">Link will be added soon</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Pixel Prowess and Peril: Navigating Security Challenges in AI-Driven Editing</h3>
+                        <p>
+                            In publication process at Bured Club Magazine (Reflection),
+                            discussing AI image editing security.
+                        </p>
+                        <p class="link-placeholder">Link will be added soon</p>
+                    </div>
+
+                    <div class="project-card clickable-card"
+                        onclick="window.open('https://www.researchgate.net/publication/374546954_Ray_Emission_by_the_Interaction_of_Cold_Atmospheric_Plasma_with_High_Beam_Energy_Electron-Positron_CERN_Beamline_for_Schools_2021', '_blank')">
+                        <h3>
+                            Ray Emission by the Interaction of Cold Atmospheric Plasma with
+                            High Beam Energy Electron-Positron
+                        </h3>
+                        <p>
+                            Participation paper for Beamline for Schools 2021 (CERN),
+                            studying plasma-beam interactions.
+                        </p>
+                        <div class="project-links">
+                            <a href="Certificates/CERN.pdf" target="_blank" class="project-link-icon"
+                                title="View Certificate">
+                                <i class="fas fa-certificate"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-
-        <!-- Other Publications -->
-        <div id="other-publications" class="project-category">
-            <div class="project-grid">
-
-                <div class="project-card">
-                    <h3>Fall Detection Dataset (Ongoing)</h3>
-                    <p>Creating and evaluating a dataset for fall detection systems.</p>
-                    <p class="link-placeholder">Link will be added soon</p>
-                </div>
-
-                <div class="project-card">
-                    <h3>Turning the Tide: Rethinking Plastic Waste Management in Bangladesh</h3>
-                    <p>
-                        In publication process at Bured Club Magazine (Reflection),
-                        exploring sustainable plastic management.
-                    </p>
-                    <p class="link-placeholder">Link will be added soon</p>
-                </div>
-
-                <div class="project-card">
-                    <h3>Pixel Prowess and Peril: Navigating Security Challenges in AI-Driven Editing</h3>
-                    <p>
-                        In publication process at Bured Club Magazine (Reflection),
-                        discussing AI image editing security.
-                    </p>
-                    <p class="link-placeholder">Link will be added soon</p>
-                </div>
-
-                <div class="project-card clickable-card"
-                    onclick="window.open('https://www.researchgate.net/publication/374546954_Ray_Emission_by_the_Interaction_of_Cold_Atmospheric_Plasma_with_High_Beam_Energy_Electron-Positron_CERN_Beamline_for_Schools_2021', '_blank')">
-                    <h3>
-                        Ray Emission by the Interaction of Cold Atmospheric Plasma with
-                        High Beam Energy Electron-Positron
-                    </h3>
-                    <p>
-                        Participation paper for Beamline for Schools 2021 (CERN),
-                        studying plasma-beam interactions.
-                    </p>
-                    <div class="project-links">
-                        <a href="Certificates/CERN.pdf" target="_blank"
-                           class="project-link-icon" title="View Certificate">
-                            <i class="fas fa-certificate"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
         </div>
+    </section>
 
     <section id="trainings" class="section">
         <div class="container">
             <h2>Trainings & Workshops</h2>
             <div class="training-grid">
-                <a href="Certificates/python_basic certificate.pdf" target="_blank" class="training-item"><strong>Python
-                        Programming</strong> — Kaggle, HackerRank</a>
+                <a href="Certificates/python_basic certificate.pdf" target="_blank" class="training-item">
+                    <strong>Python Programming</strong>
+                    <span>— Kaggle, HackerRank</span>
+                </a>
                 <a href="Certificates/JavaScript_Essentials_1_Badge20240119-29-gcyhls.pdf" target="_blank"
-                    class="training-item"><strong>JavaScript Foundations</strong> — Cisco Networking Academy</a>
-                <a href="Certificates/ML_1.pdf" target="_blank" class="training-item"><strong>Machine Learning
-                        Fundamentals</strong> — SimpliLearn</a>
-                <a href="Certificates/certificate-elements-of-ai.png" target="_blank"
-                    class="training-item"><strong>Introduction to Artificial Intelligence</strong> — University of
-                    Helsinki</a>
+                    class="training-item">
+                    <strong>JavaScript Foundations</strong>
+                    <span>— Cisco Networking Academy</span>
+                </a>
+                <a href="Certificates/ML_1.pdf" target="_blank" class="training-item">
+                    <strong>Machine Learning Fundamentals</strong>
+                    <span>— SimpliLearn</span>
+                </a>
+                <a href="Certificates/certificate-elements-of-ai.png" target="_blank" class="training-item">
+                    <strong>Introduction to Artificial Intelligence</strong>
+                    <span>— University of Helsinki</span>
+                </a>
                 <a href="Certificates/Cybersecurity_Fundamentals_Badge20240119-29-vlk2fe.pdf" target="_blank"
-                    class="training-item"><strong>Cybersecurity Fundamentals</strong> — IBM P-Tech</a>
-                <a href="Certificates/Ummay Maimona Chaman.pdf" target="_blank" class="training-item"><strong>Robotics
-                        Basics</strong> — BRACU Robotics Club</a>
-                <a href="Certificates/certificate googledigitalgarage.pdf" target="_blank"
-                    class="training-item"><strong>Digital Marketing Essentials</strong> — Google Digital Garage</a>
-                <a href="Certificates/Ummay Maimona Chaman (Workshop).pdf" target="_blank"
-                    class="training-item"><strong>HTML & Web Design</strong> — BUP IEEE WIE</a>
+                    class="training-item">
+                    <strong>Cybersecurity Fundamentals</strong>
+                    <span>— IBM P-Tech</span>
+                </a>
+                <a href="Certificates/Ummay Maimona Chaman.pdf" target="_blank" class="training-item">
+                    <strong>Robotics Basics</strong>
+                    <span>— BRACU Robotics Club</span>
+                </a>
+                <a href="Certificates/certificate googledigitalgarage.pdf" target="_blank" class="training-item">
+                    <strong>Digital Marketing Essentials</strong>
+                    <span>— Google Digital Garage</span>
+                </a>
+                <a href="Certificates/Ummay Maimona Chaman (Workshop).pdf" target="_blank" class="training-item">
+                    <strong>HTML & Web Design</strong>
+                    <span>— BUP IEEE WIE</span>
+                </a>
                 <a href="Certificates/Intellectium Certificates OF APPRECIATION-52.pdf" target="_blank"
-                    class="training-item"><strong>Prompt Engineering Basics</strong> — Intellectium</a>
+                    class="training-item">
+                    <strong>Prompt Engineering Basics</strong>
+                    <span>— Intellectium</span>
+                </a>
             </div>
         </div>
     </section>
@@ -647,7 +809,6 @@
             </ul>
         </div>
     </section>
-
     <section id="awards" class="section">
         <div class="container">
             <h2>Awards & Achievements</h2>
@@ -670,7 +831,6 @@
             </div>
         </div>
     </section>
-
     <section id="featured" class="section">
         <div class="container">
             <h2>Featured</h2>
@@ -772,10 +932,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
