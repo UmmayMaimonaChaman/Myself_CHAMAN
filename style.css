@@ -985,14 +985,145 @@ footer {
         0 0 40px rgba(100, 255, 218, 0.3);
 }
 
-/* Project Categories */
+/* Project Carousel & Sub-tabs Styles */
+.project-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.project-carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.project-carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 10px;
+}
+
+.project-carousel-control {
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.project-carousel-control:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+}
+
+.project-carousel-control i {
+    font-size: 1.2rem;
+}
+
+.project-subtabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.subtab {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    background: transparent;
+    color: #8892b0;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subtab:hover, .subtab.active {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(100, 255, 218, 0.05);
+}
+
 .project-category {
     display: none;
+}
+
+#hardware-projects .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#publications .project-grid {
+    grid-template-columns: repeat(2, 1fr); /* Keep publications at 2 since they have no images */
+}
+
+@media (max-width: 992px) {
+    #hardware-projects .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #hardware-projects .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .project-category.active {
     display: block;
     animation: fadeIn 0.5s ease-in-out;
+}
+
+.software-sub-grid {
+    display: none;
+}
+
+.software-sub-grid.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.project-carousel-track .project-card {
+    min-width: calc(33.333% - 20px);
+    width: calc(33.333% - 20px); /* Ensure fixed width regardless of content */
+    flex-shrink: 0;
+}
+
+/* If only one card, allow it to be centered or take better space if needed, 
+   but for now we keep consistency with the 33% rule to match others.
+   Wait, if there's only one card, it looks better if it's wider?
+   No, user wants "softwares one size". Software one size is 33% (3 in a row).
+*/
+    flex: 0 0 auto;
+}
+
+@media (max-width: 992px) {
+    .project-carousel-track .project-card {
+        min-width: calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-carousel-track .project-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .project-carousel-control {
+        display: none; /* Hide controls on mobile if swipe is preferred (optional) */
+    }
 }
 
 @keyframes fadeIn {
@@ -1007,16 +1138,7 @@ footer {
     }
 }
 
-/* Project Card with Images */
-.project-card {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-}
-
+/* Ensure project images are constrained */
 .project-image {
     width: 100%;
     height: 200px;
@@ -1033,8 +1155,33 @@ footer {
     transition: transform 0.3s ease;
 }
 
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.05);
+}
+
+.project-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link-icon {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.project-link-icon:hover {
+    color: var(--text-color);
+    transform: translateY(-2px);
 }
 
 .project-content {
@@ -1181,9 +1328,7 @@ footer {
     text-align: center;
     margin-bottom: 1rem;
     margin-top: -3.5rem;
-    /* Move up more */
     font-size: 2.5rem;
-    /* Smaller */
     text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     color: var(--accent-color);
 }
@@ -1195,7 +1340,6 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 12vw;
-    /* Bigger */
     font-weight: 900;
     color: rgba(255, 255, 255, 0.08);
     z-index: 0;
@@ -1218,7 +1362,6 @@ footer {
     justify-content: center;
     gap: 0;
     margin: auto 0;
-    /* Center vertically in remaining space */
     width: 100%;
 }
 
@@ -1320,4 +1463,9 @@ footer {
 
 .carousel-item.active:hover::after {
     opacity: 1;
+}
+
+@media (max-width: 1200px) {
+    .carousel-control.prev { left: 0; }
+    .carousel-control.next { right: 0; }
 }

@@ -42,21 +42,99 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Project Tab Switching
 function showProjectCategory(category) {
-    // Hide all project categories
-    document.querySelectorAll('.project-category').forEach(cat => {
-        cat.classList.remove('active');
+    // Show selected category
+    const categoryElement = document.getElementById(category + '-projects');
+    if (categoryElement) {
+        // Hide only project categories
+        document.querySelectorAll('#projects .project-category').forEach(cat => {
+            cat.classList.remove('active');
+        });
+
+        // Remove active class from only project tabs
+        document.querySelectorAll('#projects .project-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        categoryElement.classList.add('active');
+    }
+
+    // Add active class to clicked tab
+    event.currentTarget.classList.add('active');
+
+    // Special logic for Software sub-tabs
+    const softwareSubTabs = document.querySelector('.project-subtabs');
+    if (softwareSubTabs) {
+        if (category === 'software') {
+            softwareSubTabs.style.display = 'flex';
+            // Default to 'ml' if no software sub-grid is active
+            const activeSubGrid = document.querySelector('.software-sub-grid.active');
+            if (!activeSubGrid) {
+                showSoftwareSubCategory('ml');
+            }
+        } else {
+            softwareSubTabs.style.display = 'none';
+            // Hide all sub-grids when leaving Software to ensure clean state
+            document.querySelectorAll('.software-sub-grid').forEach(grid => {
+                grid.classList.remove('active');
+            });
+        }
+    }
+}
+
+// Software Sub-category Switching
+function showSoftwareSubCategory(subCategory) {
+    // Hide all sub-grids
+    document.querySelectorAll('.software-sub-grid').forEach(grid => {
+        grid.classList.remove('active');
     });
 
-    // Remove active class from all tabs
-    document.querySelectorAll('.project-tab').forEach(tab => {
+    // Remove active class from all subtabs
+    document.querySelectorAll('.subtab').forEach(tab => {
         tab.classList.remove('active');
     });
 
-    // Show selected category
-    document.getElementById(category + '-projects').classList.add('active');
+    // Show selected sub-grid
+    const targetGrid = document.getElementById(subCategory + '-software');
+    if (targetGrid) {
+        targetGrid.classList.add('active');
+    }
 
-    // Add active class to clicked tab
-    event.target.classList.add('active');
+    // Add active class to clicked subtab if it exists (for manual clicks)
+    if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+    } else {
+        // Find the tab matching the category for programmatic calls
+        const tabs = document.querySelectorAll('.subtab');
+        tabs.forEach(tab => {
+            if (tab.getAttribute('onclick').includes(subCategory)) {
+                tab.classList.add('active');
+            }
+        });
+    }
+}
+
+// Carousel Movement Logic
+const carouselPositions = {}; // Keep track of each carousel index separately
+
+function moveCarousel(trackId, direction) {
+    const track = document.getElementById('track-' + trackId);
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.project-card');
+    const totalCards = cards.length;
+    if (totalCards <= 1) return; // No need to move if 1 or 0 cards
+
+    // Initialize position if not exists
+    if (carouselPositions[trackId] === undefined) {
+        carouselPositions[trackId] = 0;
+    }
+
+    // Update index
+    carouselPositions[trackId] = (carouselPositions[trackId] + direction + totalCards) % totalCards;
+
+    // Apply transform
+    const cardWidth = cards[0].offsetWidth + 30; // 30 is the gap
+    track.style.transform = `translateX(-${carouselPositions[trackId] * cardWidth}px)`;
 }
 
 // Toggle Show More/Less for project descriptions
@@ -73,35 +151,33 @@ function toggleDescription(button) {
     }
 }
 
-// Toggle Show More/Less for publication categories
 function showPublicationCategory(category) {
-    // Hide all publication categories
-    document.querySelectorAll('#journal-publications, #conference-publications, #others-publications').forEach(cat => {
-        cat.classList.remove('active');
-    });
-
-    // Remove active class from all publication tabs
-    document.querySelectorAll('.project-tab').forEach(tab => {
-        if (tab.onclick && tab.onclick.toString().includes('showPublicationCategory')) {
-            tab.classList.remove('active');
-        }
-    });
-
     // Show selected category
-    document.getElementById(category + '-publications').classList.add('active');
+    const categoryElement = document.getElementById(category + '-publications');
+    if (categoryElement) {
+        // Hide only publication categories
+        document.querySelectorAll('#publications .project-category').forEach(cat => {
+            cat.classList.remove('active');
+        });
 
-    // Add active class to clicked tab
-    event.target.classList.add('active');
+        // Remove active class from only publication tabs
+        document.querySelectorAll('#publications .project-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        categoryElement.classList.add('active');
+        
+        // Add active class to clicked tab
+        event.currentTarget.classList.add('active');
+    }
 }
-
-console.log("Welcome to CHAMAN's Portfolio!");
 
 // Contact Carousel Logic
 const contactData = [
     { icon: 'fa-envelope', link: 'mailto:chamanmaimona@gmail.com', tooltip: 'Email Me' },
     { icon: 'fa-linkedin', link: 'https://www.linkedin.com/in/ummaymaimonachaman', tooltip: 'LinkedIn' },
     { icon: 'fa-github', link: 'https://github.com/UmmayMaimonaChaman', tooltip: 'GitHub' },
-    { icon: 'fa-hackerrank', link: 'https://www.hackerrank.com/profile/chamanmaimona', tooltip: 'HackerRank' }, // Note: check FA version support or use custom
+    { icon: 'fa-hackerrank', link: 'https://www.hackerrank.com/profile/chamanmaimona', tooltip: 'HackerRank' },
     { icon: 'fa-facebook', link: 'https://www.facebook.com/share/14TB8utCnvY/', tooltip: 'Facebook' },
     { icon: 'fa-instagram', link: 'https://www.instagram.com/chaman_maimona/', tooltip: 'Instagram' },
     { icon: 'fa-phone', link: 'tel:+8801715003815', tooltip: 'Call Me' },
@@ -120,11 +196,8 @@ if (carouselTrack) {
         el.className = 'carousel-item';
         el.href = item.link;
         el.target = item.link.startsWith('http') ? '_blank' : '_self';
-        el.innerHTML = `<i class="fab ${item.icon} ${item.icon.startsWith('fa-') && !item.icon.startsWith('fa-facebook') && !item.icon.startsWith('fa-linkedin') && !item.icon.startsWith('fa-github') ? 'fas' : ''} ${item.icon === 'fa-envelope' || item.icon === 'fa-phone' || item.icon === 'fa-map-marker-alt' ? 'fas' : 'fab'}"></i>`;
-
-        // Fix for specific icons that might be solid (fas) instead of brand (fab) or vice versa
-        // Actually, let's simplify: just use the class string from data if specific needed, or default logic
-        // Reset innerHTML for cleaner logic
+        
+        // Icon prefix logic
         let prefix = 'fab';
         if (['fa-envelope', 'fa-phone', 'fa-map-marker-alt'].includes(item.icon)) {
             prefix = 'fas';
@@ -147,15 +220,12 @@ if (carouselTrack) {
 
     function updateCarousel() {
         items.forEach((item, i) => {
-            // Calculate distance from active index
-            // We want a circular difference: e.g. with 8 items, if current is 0, 7 is -1, 1 is +1
             let offset = i - carouselIndex;
 
             // Normalize offset to be within -Total/2 to +Total/2
             if (offset > items.length / 2) offset -= items.length;
             if (offset < -items.length / 2) offset += items.length;
 
-            // Apply styles based on offset
             if (offset === 0) {
                 // Active Center
                 item.style.opacity = '1';
@@ -165,20 +235,10 @@ if (carouselTrack) {
                 item.classList.add('active');
             } else {
                 item.classList.remove('active');
-
-                // Calculate position: spread items out
-                // e.g. 100px per step
                 const spacing = 90;
                 const translateX = offset * spacing;
-
-                // Scale drops as we go further out
-                // 1 -> 0.8, 2 -> 0.6, etc.
                 const scale = Math.max(0.5, 1 - Math.abs(offset) * 0.2);
-
-                // Opacity also drops
                 const opacity = Math.max(0.2, 1 - Math.abs(offset) * 0.3);
-
-                // Z-index drops
                 const zIndex = 10 - Math.abs(offset);
 
                 item.style.transform = `translateX(${translateX}px) scale(${scale})`;
@@ -189,19 +249,25 @@ if (carouselTrack) {
         });
     }
 
-    prevBtn.addEventListener('click', () => {
-        carouselIndex = (carouselIndex - 1 + items.length) % items.length;
-        updateCarousel();
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            carouselIndex = (carouselIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+    }
 
-    nextBtn.addEventListener('click', () => {
-        carouselIndex = (carouselIndex + 1) % items.length;
-        updateCarousel();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            carouselIndex = (carouselIndex + 1) % items.length;
+            updateCarousel();
+        });
+    }
 
     // Initial call
     updateCarousel();
 }
+
+console.log("Welcome to CHAMAN's Portfolio!");
 
 // Particle Background Logic
 (function () {
