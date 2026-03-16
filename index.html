@@ -508,92 +508,140 @@
 
         <div id="hardware-projects" class="project-category">
             <div class="project-carousel-container">
-                <button class="project-carousel-control prev" onclick="moveCarousel('hardware', -1)"><i
-                        class="fas fa-chevron-left"></i></button>
+        
+                <button class="project-carousel-control prev" onclick="moveCarousel('hardware', -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+        
                 <div class="project-carousel-wrapper">
                     <div class="project-carousel-track" id="track-hardware">
+        
+                        <!-- Project 1 -->
                         <div class="project-card">
                             <div class="project-image">
                                 <img src="UMC/restroom.png" alt="Autonomous restroom management">
                             </div>
+        
                             <div class="project-content">
                                 <h3>Autonomous restroom management</h3>
+        
                                 <p class="project-description">
-                                    <span class="short-desc">An Arduino-controlled robot capable of navigating restroom
-                                        automation
-                                        like controlling water leakage, odor management.</span>
-                                    <span class="full-desc" style="display: none;"> And notifying the manager via
-                                        Telegram for
-                                        maintenance alerts.</span>
-                                    <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
+                                    <span class="short-desc">
+                                        An Arduino-controlled robot capable of navigating restroom
+                                        automation like controlling water leakage, odor management.
+                                    </span>
+        
+                                    <span class="full-desc" style="display: none;">
+                                        And notifying the manager via Telegram for maintenance alerts.
+                                    </span>
+        
+                                    <button class="show-more-btn" onclick="toggleDescription(this)">
+                                        Show More
+                                    </button>
                                 </p>
+        
                                 <div class="tags">
-                                    <span>Arduino</span><span>IoT</span><span>Telegram API</span>
+                                    <span>Arduino</span>
+                                    <span>IoT</span>
+                                    <span>Telegram API</span>
                                 </div>
+        
                                 <div class="project-links">
                                     <a href="UMC/Restroom_manage.pdf"
-                                        target="_blank" class="project-link-icon" title="View on GitHub">
+                                       target="_blank"
+                                       class="project-link-icon"
+                                       title="View Project">
                                         <i class="fab fa-github"></i>
                                     </a>
+                                </div>
                             </div>
                         </div>
-
+        
+                        <!-- Project 2 -->
                         <div class="project-card">
                             <div class="project-image">
                                 <img src="UMC/judge.png" alt="Digital Judging Platform">
                             </div>
+        
                             <div class="project-content">
                                 <h3>Digital Judging Platform for Talent Competitions</h3>
+        
                                 <p class="project-description">
-                                    <span class="short-desc">Worked as a team member and built a role-based voting and
-                                        scoring
-                                        platform featuring
-                                        weighted votes, single-vote validation, administrative monitoring.</span>
-                                    <span class="full-desc" style="display: none;"> And automated winner calculation
-                                        with
-                                        detailed score breakdowns.</span>
-                                    <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
+                                    <span class="short-desc">
+                                        Worked as a team member and built a role-based voting and scoring
+                                        platform featuring weighted votes, single-vote validation,
+                                        administrative monitoring.
+                                    </span>
+        
+                                    <span class="full-desc" style="display: none;">
+                                        And automated winner calculation with detailed score breakdowns.
+                                    </span>
+        
+                                    <button class="show-more-btn" onclick="toggleDescription(this)">
+                                        Show More
+                                    </button>
                                 </p>
+        
                                 <div class="tags">
-                                    <span>Microcontroller</span><span>Embedded Systems</span><span>C/C++</span>
+                                    <span>Microcontroller</span>
+                                    <span>Embedded Systems</span>
+                                    <span>C/C++</span>
                                 </div>
+        
                                 <div class="project-links">
                                     <a href="https://github.com/UmmayMaimonaChaman/CSE341/tree/main/Lab%20Project"
-                                        target="_blank" class="project-link-icon" title="View on GitHub">
+                                       target="_blank"
+                                       class="project-link-icon"
+                                       title="View on GitHub">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
+        
+                        <!-- Project 3 -->
                         <div class="project-card">
                             <div class="project-image">
                                 <img src="UMC/plant.png" alt="Smart Plant Watering System">
                             </div>
+        
                             <div class="project-content">
                                 <h3>Smart Plant Watering System</h3>
+        
                                 <p class="project-description">
-                                    <span class="short-desc">Worked as a team member and developed an autonomous
-                                        irrigation
-                                        robot with plant detection,
-                                        distance-based localization, rain sensing, temperature-dependent
-                                        watering.</span>
-                                    <span class="full-desc" style="display: none;"> Reservoir monitoring, and
-                                        return-to-base
-                                        logic powered by a custom navigation algorithm.</span>
-                                    <button class="show-more-btn" onclick="toggleDescription(this)">Show More</button>
+                                    <span class="short-desc">
+                                        Worked as a team member and developed an autonomous irrigation
+                                        robot with plant detection, distance-based localization,
+                                        rain sensing, temperature-dependent watering.
+                                    </span>
+        
+                                    <span class="full-desc" style="display: none;">
+                                        Reservoir monitoring, and return-to-base logic powered by a
+                                        custom navigation algorithm.
+                                    </span>
+        
+                                    <button class="show-more-btn" onclick="toggleDescription(this)">
+                                        Show More
+                                    </button>
                                 </p>
+        
                                 <div class="tags">
-                                    <span>Robotics</span><span>Autonomous</span><span>Arduino</span><span>Sensors</span>
+                                    <span>Robotics</span>
+                                    <span>Autonomous</span>
+                                    <span>Arduino</span>
+                                    <span>Sensors</span>
                                 </div>
                             </div>
                         </div>
+        
                     </div>
                 </div>
-                <button class="project-carousel-control next" onclick="moveCarousel('hardware', 1)"><i
-                        class="fas fa-chevron-right"></i></button>
+        
+                <button class="project-carousel-control next" onclick="moveCarousel('hardware', 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+        
             </div>
-        </div>
         </div>
     </section>
 
