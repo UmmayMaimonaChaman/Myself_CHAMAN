@@ -214,7 +214,6 @@
             </div>
         </div>
     </section>
-    </section>
 
     <section id="projects" class="section">
         <div class="container">
@@ -222,20 +221,20 @@
 
             <!-- Project Tabs -->
             <div class="project-tabs">
-                <button class="project-tab active" onclick="showProjectCategory('software')">Software</button>
-                <button class="project-tab" onclick="showProjectCategory('hardware')">Hardware</button>
+                <button class="project-tab active" onclick="showProjectCategory('software', event)">Software</button>
+                <button class="project-tab" onclick="showProjectCategory('hardware', event)">Hardware</button>
             </div>
 
             <!-- Software Projects -->
             <div id="software-projects" class="project-category active">
                 <!-- Sub-tabs for Software -->
                 <div class="project-subtabs">
-                    <button class="subtab active" onclick="showSoftwareSubCategory('ml')">ML</button>
-                    <button class="subtab" onclick="showSoftwareSubCategory('dl')">DL</button>
-                    <button class="subtab" onclick="showSoftwareSubCategory('web')">Web Dev</button>
-                    <button class="subtab" onclick="showSoftwareSubCategory('python')">Python</button>
-                    <button class="subtab" onclick="showSoftwareSubCategory('opengl')">OpenGL</button>
-                    <button class="subtab" onclick="showSoftwareSubCategory('neural')">Neural Network</button>
+                    <button class="subtab active" onclick="showSoftwareSubCategory('ml', event)">ML</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('dl', event)">DL</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('web', event)">Web Dev</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('python', event)">Python</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('opengl', event)">OpenGL</button>
+                    <button class="subtab" onclick="showSoftwareSubCategory('neural', event)">Neural Network</button>
                 </div>
 
                 <!-- ML Sub-category -->
@@ -290,6 +289,22 @@
                                 class="fas fa-chevron-left"></i></button>
                         <div class="project-carousel-wrapper">
                             <div class="project-carousel-track" id="track-dl">
+                                <div class="project-card">
+                                    <div class="project-image"><img src="UMC/rag_chatbot.png" alt="Multilingual RAG Chatbot"></div>
+                                    <div class="project-content">
+                                        <h3>Multilingual RAG Chatbot: Document Intelligence System</h3>
+                                        <p class="project-description">An advanced Multilingual (Bengali, Banglish & English) Document Intelligence Assistant that leverages Retrieval-Augmented Generation (RAG) to provide contextual answers from uploaded PDFs and images.</p>
+                                        <div class="tags"><span>RAG</span><span>LLM</span><span>Multilingual</span><span>Deep Learning</span></div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/UmmayMaimonaChaman/Rag-ChatBot"
+                                                target="_blank" class="project-link-icon github-link"
+                                                title="GitHub Source"><i class="fab fa-github"></i></a>
+                                            <a href="https://huggingface.co/spaces/Chaman5204/rag-chatbot"
+                                                target="_blank" class="project-link-icon live-link"
+                                                title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="project-card">
                                     <div class="project-image"><img src="UMC/skin.png" alt="SkinGuard PatchCore"></div>
                                     <div class="project-content">
@@ -604,9 +619,9 @@
 
             <!-- Publication Tabs -->
             <div class="project-tabs">
-                <button class="project-tab active" onclick="showPublicationCategory('journal')">Journal</button>
-                <button class="project-tab" onclick="showPublicationCategory('conference')">Conference</button>
-                <button class="project-tab" onclick="showPublicationCategory('others')">Others</button>
+                <button class="project-tab active" onclick="showPublicationCategory('journal', event)">Journal</button>
+                <button class="project-tab" onclick="showPublicationCategory('conference', event)">Conference</button>
+                <button class="project-tab" onclick="showPublicationCategory('others', event)">Others</button>
             </div>
 
             <!-- Journal Publications -->
@@ -738,7 +753,6 @@
 
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

@@ -41,7 +41,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Project Tab Switching
-function showProjectCategory(category) {
+function showProjectCategory(category, event) {
     // Show selected category
     const categoryElement = document.getElementById(category + '-projects');
     if (categoryElement) {
@@ -59,7 +59,9 @@ function showProjectCategory(category) {
     }
 
     // Add active class to clicked tab
-    event.currentTarget.classList.add('active');
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
 
     // Special logic for Software sub-tabs
     const softwareSubTabs = document.querySelector('.project-subtabs');
@@ -82,7 +84,7 @@ function showProjectCategory(category) {
 }
 
 // Software Sub-category Switching
-function showSoftwareSubCategory(subCategory) {
+function showSoftwareSubCategory(subCategory, event) {
     // Hide all sub-grids
     document.querySelectorAll('.software-sub-grid').forEach(grid => {
         grid.classList.remove('active');
@@ -100,7 +102,9 @@ function showSoftwareSubCategory(subCategory) {
     }
 
     // Add active class to clicked subtab if it exists (for manual clicks)
-    if (window.event && window.event.currentTarget) {
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    } else if (window.event && window.event.currentTarget) {
         window.event.currentTarget.classList.add('active');
     } else {
         // Find the tab matching the category for programmatic calls
@@ -151,7 +155,7 @@ function toggleDescription(button) {
     }
 }
 
-function showPublicationCategory(category) {
+function showPublicationCategory(category, event) {
     // Show selected category
     const categoryElement = document.getElementById(category + '-publications');
     if (categoryElement) {
@@ -168,7 +172,9 @@ function showPublicationCategory(category) {
         categoryElement.classList.add('active');
         
         // Add active class to clicked tab
-        event.currentTarget.classList.add('active');
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
     }
 }
 
